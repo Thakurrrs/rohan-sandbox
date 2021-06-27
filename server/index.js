@@ -126,12 +126,16 @@ server.use("/api/insertFile", upload.single("image"), (req, res) => {
     });
 });
 
-server.use("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../client/build", "index.html"));
-});
+// server.use("*", (req, res) => {
+//   res.sendFile(path.join(__dirname, "../client/build", "index.html"));
+// });
+
+server.use("/getDetails", (req, res) =>{
+  res.send("Hello Rohan")
+})
 
 server.listen(port, () => {
   console.log("Server Running on -->", port);
   //test(1, 2);
-  console.log("Server build at", path.join(__dirname, "../client/build"));
+  //console.log("Server build at", path.join(__dirname, "../client/build"));
 });
